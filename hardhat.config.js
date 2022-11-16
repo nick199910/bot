@@ -59,6 +59,8 @@ module.exports = {
             url: AVAXMAIN_PRC_URL,
             accounts: AVAXMAIN_PRIVATE_KEY ? [AVAXMAIN_PRIVATE_KEY] : [],
             chainId: 43114,
+            gasPrice: 100000000000,
+            gasLimit: 10000000,
         },
     },
     etherscan: {
