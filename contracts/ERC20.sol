@@ -2,7 +2,7 @@
 pragma solidity >=0.5.0;
 
 interface ERC20 {
-    function name() external view returns (string memory) ;
+    function name() external view returns (string memory);
 
     function symbol() external view returns (string memory);
 

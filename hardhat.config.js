@@ -1,6 +1,7 @@
 require("@nomicfoundation/hardhat-toolbox");
 require("@nomiclabs/hardhat-ethers");
 require("@nomiclabs/hardhat-etherscan");
+
 require("dotenv").config();
 // const { network } = require("hardhat")
 
@@ -43,7 +44,8 @@ module.exports = {
     defaultNetwork: "hardhat",
     networks: {
         localhost: {
-            chainId: 31337,
+            // chainId: 31337,
+            url: "http://127.0.0.1:8545",
         },
         goerli: {
             url: GOERLI_RPC_URL,
@@ -57,10 +59,23 @@ module.exports = {
         },
         avax_main: {
             url: AVAXMAIN_PRC_URL,
+
             accounts: AVAXMAIN_PRIVATE_KEY ? [AVAXMAIN_PRIVATE_KEY] : [],
             chainId: 43114,
             gasPrice: 100000000000,
             gasLimit: 10000000,
+        },
+        // fork_url: {
+        //     url: "http://127.0.0.1:8545",
+        //     // chainId: 1,
+        //     forking: {
+        //         url: "https://orbital-evocative-slug.discover.quiknode.pro/ffb89f4ad188fa8aa5aa20e027f3e93af8e654d3",
+        //     },
+        // },
+        hardhat: {
+            forking: {
+                url: "https://orbital-evocative-slug.discover.quiknode.pro/ffb89f4ad188fa8aa5aa20e027f3e93af8e654d3",
+            },
         },
     },
     etherscan: {

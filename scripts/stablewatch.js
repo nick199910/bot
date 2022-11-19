@@ -28,7 +28,10 @@ async function main() {
     // 为每个token构建具体的数据结构的实例
     for (const [name, address] of Object.entries(TOKEN_ADDRESSES)) {
         if (name !== "wavax") {
-            const contract = await ethers.getContractAt("ERC20", address); // 拿到该地址下合约的实例
+            const contract = await ethers.getContractAt(
+                "contracts/ERC20.sol:ERC20",
+                address
+            ); // 拿到该地址下合约的实例
             tokens.push({
                 name,
                 contract,
@@ -49,6 +52,8 @@ async function main() {
     });
 
     const signer = await ethers.getSigner();
+
+    console.log("======" + signer.address);
     const signerAddress = await signer.getAddress();
     const signerBalance = await signer.getBalance();
 
@@ -90,7 +95,7 @@ async function main() {
             );
 
             const profitability = amountOut[2] / 10 ** tokenOut.decimals;
-
+            console.log("current == :" + profitability);
             // 在兑换过程中至少有1%的盈利,
             if (profitability >= 1.01) {
                 console.log(

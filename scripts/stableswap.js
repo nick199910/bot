@@ -36,8 +36,14 @@ async function main() {
         "WAVAX",
         wavaxContractAddress
     );
-    const mimContract = await ethers.getContractAt("ERC20", mimContractAddress);
-    const daiContract = await ethers.getContractAt("ERC20", daiContractAddress);
+    const mimContract = await ethers.getContractAt(
+        "contracts/ERC20.sol:ERC20",
+        mimContractAddress
+    );
+    const daiContract = await ethers.getContractAt(
+        "contracts/ERC20.sol:ERC20",
+        daiContractAddress
+    );
 
     // 拿到wtoken
     // async function getWToken(_signer, _wavaxContract, _wantWTokenAmount)
