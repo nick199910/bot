@@ -65,21 +65,21 @@ async function main() {
         await sleep(500);
     }
 
-    异步打开文件;
-    console.log("准备打开文件！");
-    fs.writeFile("./abraRate.txt", "0.0", function (err) {
-        if (err) {
-            throw err;
-        }
+    // 异步打开文件;
+    // console.log("准备打开文件！");
+    // fs.writeFile("./abraRate.txt", "0.0", function (err) {
+    //     if (err) {
+    //         throw err;
+    //     }
 
-        // 写入成功后读取测试
-        fs.readFile("./abraRate.txt", "utf-8", function (err, data) {
-            if (err) {
-                throw err;
-            }
-            console.log(data);
-        });
-    });
+    //     // 写入成功后读取测试
+    //     fs.readFile("./abraRate.txt", "utf-8", function (err, data) {
+    //         if (err) {
+    //             throw err;
+    //         }
+    //         console.log(data);
+    //     });
+    // });
 }
 
 main();
